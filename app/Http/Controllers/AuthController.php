@@ -7,6 +7,7 @@ use App\Models\UserAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Validator;
@@ -73,6 +74,8 @@ class AuthController extends Controller
                 'message' => 'Login user successfully',
                 'data'    => $this->createNewToken($token)
             );
+
+            Log::info('User Login', $return);
 
             return response()->json($return, 201);
         } catch (\Exception $e) {
@@ -296,6 +299,8 @@ class AuthController extends Controller
                 'message' => 'User successfully registered',
                 'data'    => $data
             );
+
+            Log::info('User Register', $return);
 
             return response()->json($return, 201);
         } catch (\Exception $e) {
@@ -623,6 +628,8 @@ class AuthController extends Controller
                 'success' => true,
                 'message' => 'User successfully updated'
             );
+
+            Log::info('User Update', $return);
 
             return response()->json($return, 201);
         } catch (\Exception $e) {
