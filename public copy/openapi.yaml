@@ -1,0 +1,19 @@
+openapi: 3.0.0
+info:
+  title: 'API REST Soluti'
+  version: '0.1'
+paths:
+  /api/auth/login:
+    get:
+      tags:
+        - test
+      summary: 'Returns a list of courses'
+      description: 'Returns a object of courses'
+      operationId: 'App\Http\Controllers\AuthController::login'
+      responses:
+        '200':
+          description: 'Return data user and bearer token'
+        '422':
+          description: 'Error validate data post'
+        '401':
+          description: Unauthorized

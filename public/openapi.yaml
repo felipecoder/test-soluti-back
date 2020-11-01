@@ -1,0 +1,383 @@
+openapi: 3.0.0
+info:
+  title: 'API REST Soluti'
+  version: '0.1'
+paths:
+  /api/auth/login:
+    post:
+      tags:
+        - Auth
+      summary: 'Return data user and bearer token'
+      description: 'Return data user and bearer token'
+      operationId: 'App\Http\Controllers\AuthController::login'
+      parameters:
+        -
+          name: email
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              email:
+                description: 'Get a JWT via given credentials.'
+                type: string
+            type: object
+        -
+          name: password
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              password:
+                description: 'Get a JWT via given credentials.'
+                type: string
+            type: object
+      responses:
+        '201':
+          description: 'Return data user and bearer token'
+        '422':
+          description: 'Error validate data post'
+        '401':
+          description: Unauthorized
+  /api/auth/register:
+    post:
+      tags:
+        - Auth
+      summary: 'Return message create user'
+      description: 'Return message create user'
+      operationId: 'App\Http\Controllers\AuthController::register'
+      parameters:
+        -
+          name: name
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              name:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: email
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              email:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: password
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              password:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: password_confirmation
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              password_confirmation:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: identity
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              identity:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: birthday
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              birthday:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: street
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              street:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: city
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              city:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: state
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              state:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: number
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              number:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: region
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              region:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: complement
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              complement:
+                description: 'Register a User.'
+                type: string
+            type: object
+        -
+          name: biometry
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              biometry:
+                description: 'Register a User.'
+                type: file
+            type: object
+      responses:
+        '201':
+          description: 'User successfully registered'
+        '400':
+          description: 'Error validate data post'
+  /api/auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: 'Logout user of system'
+      description: 'Logout user of system'
+      operationId: 'App\Http\Controllers\AuthController::logout'
+      responses:
+        '201':
+          description: 'User successfully signed out'
+  /api/auth/refresh:
+    post:
+      tags:
+        - Auth
+      summary: 'Return new token user'
+      description: 'Return new token user'
+      operationId: 'App\Http\Controllers\AuthController::refresh'
+      responses:
+        '201':
+          description: 'Return new token user'
+  /api/auth/user-profile:
+    get:
+      tags:
+        - Auth
+      summary: 'Return user data'
+      description: 'Return user data'
+      operationId: 'App\Http\Controllers\AuthController::userProfile'
+      responses:
+        '201':
+          description: 'Return user data'
+  /api/auth/update:
+    post:
+      tags:
+        - Auth
+      summary: 'Return message update user'
+      description: 'Return message update user'
+      operationId: 'App\Http\Controllers\AuthController::update'
+      parameters:
+        -
+          name: name
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              name:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: password
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              password:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: password_confirmation
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              password_confirmation:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: birthday
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              birthday:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: street
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              street:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: city
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              city:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: state
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              state:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: number
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              number:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: region
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              region:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: complement
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              complement:
+                description: 'Update User.'
+                type: string
+            type: object
+        -
+          name: biometry
+          in: header
+          required: true
+          style: form
+          schema:
+            properties:
+              biometry:
+                description: 'Update User.'
+                type: file
+            type: object
+        -
+          name: current_password
+          in: header
+          required: false
+          style: form
+          schema:
+            properties:
+              current_password:
+                description: 'Update User.'
+                type: string
+            type: object
+      responses:
+        '201':
+          description: 'User successfully registered'
+        '400':
+          description: 'Error validate data post'
+  /api/users/list:
+    get:
+      tags:
+        - Users
+      summary: 'Get list of users'
+      description: 'Get list of users'
+      operationId: 'App\Http\Controllers\UsersController::index'
+      responses:
+        '201':
+          description: 'User successfully signed out'
